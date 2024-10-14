@@ -1,28 +1,31 @@
 package com.fintech.main;
 
-import com.fintech.dao.ContaBancariaDAO;
-import com.fintech.model.ContaBancaria;
+import com.fintech.dao.UsuarioDAO;
+import com.fintech.model.Usuario;
+
+import java.sql.Date;
 
 public class Main {
+
     public static void main(String[] args) {
-        ContaBancariaDAO dao = new ContaBancariaDAO();
+        UsuarioDAO dao = new UsuarioDAO();
 
-        // Inserir cinco novas contas
-        ContaBancaria conta1 = new ContaBancaria(1, 1, 1, 1, "1234", "567890", 1000.00);
-        ContaBancaria conta2 = new ContaBancaria(2, 2, 1, 1, "1235", "567891", 1500.50);
-        ContaBancaria conta3 = new ContaBancaria(3, 3, 1, 2, "1236", "567892", 2500.75);
-        ContaBancaria conta4 = new ContaBancaria(4, 4, 2, 1, "1237", "567893", 3000.20);
-        ContaBancaria conta5 = new ContaBancaria(5, 5, 2, 2, "1238", "567894", 500.00);
+        // Inserir cinco novos usuários
+        Usuario usuario1 = new Usuario(1, "12345678901", "email1@teste.com", "Nome Completo 1", "senha123", Date.valueOf("2022-01-01"));
+        Usuario usuario2 = new Usuario(2, "98765432109", "email2@teste.com", "Nome Completo 2", "senha123", Date.valueOf("2022-01-02"));
+        Usuario usuario3 = new Usuario(3, "45678912345", "email3@teste.com", "Nome Completo 3", "senha123", Date.valueOf("2022-01-03"));
+        Usuario usuario4 = new Usuario(4, "32165498765", "email4@teste.com", "Nome Completo 4", "senha123", Date.valueOf("2022-01-04"));
+        Usuario usuario5 = new Usuario(5, "65498732165", "email5@teste.com", "Nome Completo 5", "senha123", Date.valueOf("2022-01-05"));
 
-        dao.insert(conta1);
-        dao.insert(conta2);
-        dao.insert(conta3);
-        dao.insert(conta4);
-        dao.insert(conta5);
+        dao.insert(usuario1);
+        dao.insert(usuario2);
+        dao.insert(usuario3);
+        dao.insert(usuario4);
+        dao.insert(usuario5);
 
-        // Recuperar todas as contas
-        for (ContaBancaria conta : dao.getAll()) {
-            System.out.println("Conta ID: " + conta.getIdConta() + " | Saldo: " + conta.getSaldoAtual());
+        // Recuperar todos os usuários
+        for (Usuario usuario : dao.getAll()) {
+            System.out.println("ID: " + usuario.getIdUsuario() + " - Nome: " + usuario.getNmCompleto());
         }
     }
 }
