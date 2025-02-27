@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    private static final String URL = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
-    private static final String USER = "RM555667";
-    private static final String PASSWORD = "260493";
+    private static final String URL = "SEU_DB";
+    private static final String USER = "SEU_USUARIO";
+    private static final String PASSWORD = "SUA_SENHA";
 
     public static Connection getConnection() throws SQLException {
         try {
